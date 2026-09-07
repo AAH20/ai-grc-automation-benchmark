@@ -1,0 +1,17 @@
+{
+  "collector_cost": 3000,
+  "storage_cost": 500,
+  "orchestration_cost": 2000,
+  "model_cost": 4500,
+  "human_review_cost": 9000,
+  "rework_cost": 1200,
+  "implementation_cost": 40000,
+  "manual_labor_avoided": 85000,
+  "audit_rework_avoided": 35000,
+  "expected_loss_reduction": 44200,
+  "contract_value_unblocked": 2400000,
+  "modeled_influence": 840000,
+  "finance_approved_attributable_margin": 80000,
+  "accepted_evidence_items": 5260,
+  "contribution_margin_per_transaction": 22.96
+}

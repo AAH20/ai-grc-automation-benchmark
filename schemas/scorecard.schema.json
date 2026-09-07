@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://a2zsoc.com/schemas/grcbench/scorecard.schema.json",
+  "title": "GRCBench Scorecard Input",
+  "type": "object",
+  "required": ["run_id", "runner", "evidence_level", "dimensions"],
+  "properties": {
+    "run_id": {"type": "string", "minLength": 1},
+    "runner": {"type": "string", "minLength": 1},
+    "evidence_level": {"enum": ["VERIFIED", "OBSERVED", "DOCUMENTED", "UNVERIFIED"]},
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidence_reliability", "mapping_correctness", "automation_resilience", "agent_safety", "auditability", "business_velocity", "unit_economics"],
+      "properties": {
+        "evidence_reliability": {"type": "number", "minimum": 0, "maximum": 100},
+        "mapping_correctness": {"type": "number", "minimum": 0, "maximum": 100},
+        "automation_resilience": {"type": "number", "minimum": 0, "maximum": 100},
+        "agent_safety": {"type": "number", "minimum": 0, "maximum": 100},
+        "auditability": {"type": "number", "minimum": 0, "maximum": 100},
+        "business_velocity": {"type": "number", "minimum": 0, "maximum": 100},
+        "unit_economics": {"type": "number", "minimum": 0, "maximum": 100}
+      }
+    }
+  },
+  "additionalProperties": false
+}

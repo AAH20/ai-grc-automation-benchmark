@@ -1,0 +1,11 @@
+{
+  "artifacts": [
+    "scorecard.json",
+    "economics.json",
+    "evidence-qualified.json",
+    "frameworks.json",
+    "failure-scenarios.json"
+  ],
+  "name": "GRCBench API artifacts",
+  "version": "0.1.0"
+}

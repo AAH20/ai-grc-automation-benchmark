@@ -1,0 +1,13 @@
+{
+  "artifact_id": "ev-aws-iam-001",
+  "source": "aws-config",
+  "resource": "arn:aws:organizations::111111111111:organization/o-example",
+  "collected_at": "2026-09-07T04:00:00Z",
+  "valid_from": "2026-09-07T03:00:00Z",
+  "valid_until": "2026-09-08T04:00:00Z",
+  "collector": "grcbench-aws-config@0.1.0",
+  "expected_scope": ["production", "payments"],
+  "observed_scope": ["production", "payments", "security"],
+  "control_ids": ["CC6.1", "ISO-A.5.15"],
+  "payload": {"root_mfa": true, "inactive_keys_over_90d": 0, "accounts_evaluated": 3}
+}

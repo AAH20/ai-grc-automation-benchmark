@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://a2zsoc.com/schemas/grcbench/evidence.schema.json",
+  "title": "GRCBench Evidence Artifact",
+  "type": "object",
+  "required": ["artifact_id", "source", "resource", "collected_at", "valid_from", "valid_until", "collector", "expected_scope", "observed_scope", "control_ids", "payload"],
+  "properties": {
+    "artifact_id": {"type": "string", "minLength": 1}, "source": {"type": "string"}, "resource": {"type": "string"},
+    "collected_at": {"type": "string", "format": "date-time"}, "valid_from": {"type": "string", "format": "date-time"}, "valid_until": {"type": "string", "format": "date-time"},
+    "collector": {"type": "string"}, "expected_scope": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
+    "observed_scope": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}, "control_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "payload": {"type": "object"}, "content_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  },
+  "additionalProperties": false
+}

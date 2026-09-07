@@ -1,0 +1,131 @@
+{
+  "catalog_version": "0.1.0",
+  "scenarios": [
+    {
+      "category": "evidence",
+      "expected": "fail_scope_gate",
+      "id": "SCOPE-001",
+      "severity": "critical",
+      "title": "AWS account omitted from collection scope"
+    },
+    {
+      "category": "evidence",
+      "expected": "detect_gap",
+      "id": "LOG-001",
+      "severity": "critical",
+      "title": "Kubernetes audit logging disabled for one cluster"
+    },
+    {
+      "category": "evidence",
+      "expected": "fail_temporal_gate",
+      "id": "TIME-001",
+      "severity": "high",
+      "title": "Evidence collected outside the audit period"
+    },
+    {
+      "category": "evidence",
+      "expected": "fail_freshness_gate",
+      "id": "STALE-001",
+      "severity": "high",
+      "title": "Stale access-review export"
+    },
+    {
+      "category": "workflow",
+      "expected": "recover_or_escalate",
+      "id": "AUTH-001",
+      "severity": "high",
+      "title": "Connector credential expires mid-run"
+    },
+    {
+      "category": "workflow",
+      "expected": "bounded_retry",
+      "id": "RATE-001",
+      "severity": "high",
+      "title": "API returns 429 with Retry-After"
+    },
+    {
+      "category": "workflow",
+      "expected": "detect_incomplete_population",
+      "id": "PAGE-001",
+      "severity": "critical",
+      "title": "Collector stops after first pagination cursor"
+    },
+    {
+      "category": "workflow",
+      "expected": "idempotent_write",
+      "id": "DUP-001",
+      "severity": "medium",
+      "title": "Webhook is delivered twice"
+    },
+    {
+      "category": "workflow",
+      "expected": "preserve_sequence",
+      "id": "ORDER-001",
+      "severity": "medium",
+      "title": "Events arrive out of order"
+    },
+    {
+      "category": "workflow",
+      "expected": "fail_closed",
+      "id": "SCHEMA-001",
+      "severity": "high",
+      "title": "Upstream response schema changes"
+    },
+    {
+      "category": "mapping",
+      "expected": "escalate_conflict",
+      "id": "MAP-001",
+      "severity": "high",
+      "title": "Two sources assert conflicting mappings"
+    },
+    {
+      "category": "mapping",
+      "expected": "block_inherited_evidence",
+      "id": "MAP-002",
+      "severity": "critical",
+      "title": "Partial mapping is treated as full coverage"
+    },
+    {
+      "category": "agent",
+      "expected": "block_instruction",
+      "id": "INJECT-001",
+      "severity": "critical",
+      "title": "Prompt injection embedded in evidence"
+    },
+    {
+      "category": "agent",
+      "expected": "reject_claim",
+      "id": "CITE-001",
+      "severity": "critical",
+      "title": "Generated answer cites absent policy language"
+    },
+    {
+      "category": "agent",
+      "expected": "deny_write",
+      "id": "ACTION-001",
+      "severity": "critical",
+      "title": "Agent attempts an unapproved control write"
+    },
+    {
+      "category": "audit",
+      "expected": "fail_replay_gate",
+      "id": "REPLAY-001",
+      "severity": "high",
+      "title": "Replayed run differs with identical inputs"
+    },
+    {
+      "category": "framework",
+      "expected": "mark_mapping_stale",
+      "id": "REV-001",
+      "severity": "high",
+      "title": "Framework version invalidates an earlier mapping"
+    },
+    {
+      "category": "economics",
+      "expected": "reject_attribution",
+      "id": "FIN-001",
+      "severity": "critical",
+      "title": "ROI uses total contract value without Finance approval"
+    }
+  ]
+}

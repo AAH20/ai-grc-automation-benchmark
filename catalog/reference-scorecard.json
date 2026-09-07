@@ -1,0 +1,14 @@
+{
+  "run_id": "GB-2026-09-001",
+  "runner": "GRCBench reference runner",
+  "evidence_level": "VERIFIED",
+  "dimensions": {
+    "evidence_reliability": 98.0,
+    "mapping_correctness": 96.4,
+    "automation_resilience": 97.2,
+    "agent_safety": 100.0,
+    "auditability": 100.0,
+    "business_velocity": 95.0,
+    "unit_economics": 97.0
+  }
+}

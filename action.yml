@@ -1,0 +1,20 @@
+name: GRCBench score verification
+description: Build a transparent GRCBench scorecard from a repository fixture.
+inputs:
+  scorecard:
+    description: Path to the scorecard input JSON.
+    required: true
+  output:
+    description: Path for the generated scorecard.
+    required: false
+    default: grcbench-result.json
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+    - shell: bash
+      run: python -m pip install '${{ github.action_path }}'
+    - shell: bash
+      run: grcbench score '${{ inputs.scorecard }}' --output '${{ inputs.output }}'

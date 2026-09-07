@@ -1,0 +1,70 @@
+openapi: 3.1.0
+info:
+  title: GRCBench Runner API
+  version: 0.1.0
+  description: Vendor-neutral evidence qualification, scorecard, economics, and framework import contract.
+servers:
+  - url: http://127.0.0.1:8787
+paths:
+  /health:
+    get:
+      operationId: health
+      responses:
+        '200':
+          description: Runner is ready.
+  /v1/evidence/qualify:
+    post:
+      operationId: qualifyEvidence
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [artifact, as_of]
+              properties:
+                artifact:
+                  $ref: ../schemas/evidence.schema.json
+                as_of:
+                  type: string
+                  format: date-time
+                relevant_controls:
+                  type: array
+                  items: { type: string }
+      responses:
+        '200': { description: Evidence qualification with gate-level results and receipt. }
+        '422': { description: Input failed validation. }
+  /v1/scorecards:
+    post:
+      operationId: buildScorecard
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ../schemas/scorecard.schema.json
+      responses:
+        '200': { description: Transparent scorecard and deterministic receipt. }
+        '422': { description: Input failed validation. }
+  /v1/economics:
+    post:
+      operationId: calculateEconomics
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200': { description: Finance-gated unit economics. }
+        '422': { description: Input failed validation. }
+  /v1/frameworks/import:
+    post:
+      operationId: importFrameworkCatalog
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200': { description: Normalized framework catalog. }
+        '422': { description: Input failed validation. }

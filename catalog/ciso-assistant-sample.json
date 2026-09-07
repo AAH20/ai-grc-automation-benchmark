@@ -1,0 +1,8 @@
+{
+  "frameworks": [
+    {"urn": "urn:intuitem:risk:framework:iso27001-2022", "name": "ISO/IEC 27001:2022", "version": "2022", "requirements": 93},
+    {"urn": "urn:intuitem:risk:framework:nist-csf-2", "name": "NIST CSF", "version": "2.0", "requirements": 106},
+    {"urn": "urn:intuitem:risk:framework:soc2", "name": "SOC 2 Trust Services Criteria", "version": "2017", "requirements": 61},
+    {"urn": "urn:intuitem:risk:framework:iso42001", "name": "ISO/IEC 42001", "version": "2023", "requirements": 38}
+  ]
+}

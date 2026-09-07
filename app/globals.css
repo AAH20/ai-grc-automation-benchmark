@@ -1,0 +1,38 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background); --color-foreground: var(--foreground); --font-sans: var(--font-geist-sans); --font-mono: var(--font-geist-mono);
+  --color-card: var(--card); --color-card-foreground: var(--card-foreground); --color-primary: var(--primary); --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary); --color-secondary-foreground: var(--secondary-foreground); --color-muted: var(--muted); --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent); --color-accent-foreground: var(--accent-foreground); --color-border: var(--border); --color-input: var(--input); --color-ring: var(--ring);
+  --color-destructive: var(--destructive); --radius-sm: calc(var(--radius) * .6); --radius-md: calc(var(--radius) * .8); --radius-lg: var(--radius); --radius-xl: calc(var(--radius) * 1.35);
+}
+
+:root, .dark {
+  --background: #050a12; --foreground: #e7eef6; --card: #09121e; --card-foreground: #e7eef6; --primary: #67e8f9; --primary-foreground: #031016;
+  --secondary: #111c2a; --secondary-foreground: #dbeafe; --muted: #111c2a; --muted-foreground: #7c8ca0; --accent: #152438; --accent-foreground: #ecfeff;
+  --destructive: #fb7185; --border: rgb(255 255 255 / 9%); --input: rgb(255 255 255 / 12%); --ring: #67e8f9; --radius: .65rem;
+}
+
+@layer base { * { @apply border-border outline-ring/50; } html { @apply font-sans; color-scheme: dark; scroll-behavior: smooth; } body { @apply bg-background text-foreground; } }
+
+body { background: radial-gradient(circle at 15% 0%, rgb(34 211 238 / 8%), transparent 28rem), radial-gradient(circle at 90% 20%, rgb(167 139 250 / 7%), transparent 25rem), #050a12; }
+
+@layer components {
+  .hero-panel { @apply rounded-2xl border border-white/9 bg-[#08111d]/90 p-6 shadow-[0_30px_100px_rgb(0_0_0/28%)] sm:p-8 lg:p-10; }
+  .signal-panel { @apply rounded-2xl border border-cyan-300/15 bg-gradient-to-b from-[#0b1824] to-[#07101a] p-6 shadow-[0_24px_80px_rgb(0_0_0/24%)]; }
+  .surface { @apply rounded-2xl border border-white/9 bg-[#08111d]/85 p-5 shadow-[0_24px_80px_rgb(0_0_0/20%)] sm:p-6; }
+  .metric-card { @apply rounded-xl border border-white/8 bg-black/20 p-4; } .metric-value { @apply font-mono text-3xl font-semibold tracking-[-0.05em] text-cyan-300; }
+  .eyebrow { @apply font-mono text-xs font-medium uppercase tracking-[0.18em] text-cyan-300; } .section-heading { @apply flex items-start justify-between gap-4; }
+  .section-heading h2 { @apply mt-2 text-xl font-semibold tracking-tight text-white; } .path-step { @apply rounded-xl border border-white/7 bg-black/15 p-4; }
+  .data-card { @apply flex min-h-32 flex-col gap-2 rounded-xl border border-white/8 bg-black/20 p-5; } .data-card span { @apply text-sm text-slate-500; }
+  .data-card strong { @apply font-mono text-3xl font-semibold tracking-[-0.04em] text-white; } .data-card small { @apply text-sm leading-5 text-slate-500; }
+}
+
+.score-ring { display: grid; width: 5.2rem; height: 5.2rem; place-content: center; border-radius: 999px; background: radial-gradient(circle at center, #09131f 59%, transparent 60%), conic-gradient(#67e8f9 0 97.8%, rgb(255 255 255 / 7%) 97.8%); box-shadow: 0 0 35px rgb(103 232 249 / 12%); text-align: center; }
+.score-ring span { font: 600 1.25rem var(--font-geist-mono); color: white; } .score-ring small { color: #64748b; font-size: .68rem; }
+::selection { background: rgb(103 232 249 / 25%); color: white; }

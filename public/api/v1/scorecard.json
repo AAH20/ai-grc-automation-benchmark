@@ -1,0 +1,26 @@
+{
+  "dimensions": {
+    "agent_safety": 100.0,
+    "auditability": 100.0,
+    "automation_resilience": 97.2,
+    "business_velocity": 95.0,
+    "evidence_reliability": 98.0,
+    "mapping_correctness": 96.4,
+    "unit_economics": 97.0
+  },
+  "evidence_level": "VERIFIED",
+  "overall_score": 97.8,
+  "ranking_eligible": true,
+  "receipt_sha256": "67eba7313c7c4382aac0d7d2ed845050708dcef57736315549c3f8e84e659dc3",
+  "run_id": "GB-2026-09-001",
+  "runner": "GRCBench reference runner",
+  "weights": {
+    "agent_safety": 0.16,
+    "auditability": 0.12,
+    "automation_resilience": 0.14,
+    "business_velocity": 0.1,
+    "evidence_reliability": 0.22,
+    "mapping_correctness": 0.14,
+    "unit_economics": 0.12
+  }
+}

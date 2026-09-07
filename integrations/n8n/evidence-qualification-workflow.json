@@ -1,0 +1,54 @@
+{
+  "name": "GRCBench - Qualify Evidence",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-trigger",
+      "name": "Run benchmark fixture",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "payload",
+              "name": "request",
+              "type": "object",
+              "value": "={\"as_of\":\"2026-09-07T12:00:00Z\",\"artifact\":{\"artifact_id\":\"ev-n8n-001\",\"source\":\"aws-config\",\"resource\":\"synthetic-org\",\"collected_at\":\"2026-09-07T04:00:00Z\",\"valid_from\":\"2026-09-07T03:00:00Z\",\"valid_until\":\"2026-09-08T04:00:00Z\",\"collector\":\"n8n-reference@0.1.0\",\"expected_scope\":[\"production\",\"payments\"],\"observed_scope\":[\"production\",\"payments\"],\"control_ids\":[\"CC6.1\"],\"payload\":{\"root_mfa\":true}}}"
+            }
+          ]
+        }
+      },
+      "id": "fixture",
+      "name": "Synthetic evidence envelope",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [240, 0]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{$env.GRCBENCH_API_URL || 'http://host.docker.internal:8787'}}/v1/evidence/qualify",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{$json.request}}",
+        "options": {}
+      },
+      "id": "qualify",
+      "name": "Qualify with GRCBench",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [500, 0]
+    }
+  ],
+  "connections": {
+    "Run benchmark fixture": {"main": [[{"node": "Synthetic evidence envelope", "type": "main", "index": 0}]]},
+    "Synthetic evidence envelope": {"main": [[{"node": "Qualify with GRCBench", "type": "main", "index": 0}]]}
+  },
+  "active": false,
+  "settings": {"executionOrder": "v1"},
+  "versionId": "grcbench-reference-v1"
+}

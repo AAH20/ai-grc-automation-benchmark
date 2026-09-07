@@ -1,0 +1,44 @@
+{
+  "artifact_id": "ev-aws-iam-001",
+  "gates": [
+    {
+      "gate": "provenance",
+      "reason": "collector, source, and resource identified",
+      "score": 1.0,
+      "status": "PASS"
+    },
+    {
+      "gate": "integrity",
+      "reason": "payload digest matches the retained receipt",
+      "score": 1.0,
+      "status": "PASS"
+    },
+    {
+      "gate": "freshness",
+      "reason": "evidence is valid at the evaluation time",
+      "score": 1.0,
+      "status": "PASS"
+    },
+    {
+      "gate": "scope",
+      "reason": "all expected resources are observed",
+      "score": 1.0,
+      "status": "PASS"
+    },
+    {
+      "gate": "relevance",
+      "reason": "artifact supports an evaluated control",
+      "score": 1.0,
+      "status": "PASS"
+    },
+    {
+      "gate": "temporal_validity",
+      "reason": "collection occurred within the evidence validity window",
+      "score": 1.0,
+      "status": "PASS"
+    }
+  ],
+  "qualified": true,
+  "receipt_sha256": "a72cbf6633d402cc2745026006f03a63394c6f9250fe9f2065fe47082946abc0",
+  "score": 100.0
+}
