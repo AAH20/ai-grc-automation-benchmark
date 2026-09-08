@@ -1,8 +1,8 @@
 openapi: 3.1.0
 info:
   title: GRCBench Runner API
-  version: 0.1.0
-  description: Vendor-neutral evidence qualification, scorecard, economics, and framework import contract.
+  version: 0.2.0
+  description: Vendor-neutral evidence qualification, control-to-cash economics, governed evolution, scorecard, and framework import contract.
 servers:
   - url: http://127.0.0.1:8787
 paths:
@@ -56,6 +56,32 @@ paths:
             schema: { type: object }
       responses:
         '200': { description: Finance-gated unit economics. }
+        '422': { description: Input failed validation. }
+  /v1/control-to-cash:
+    post:
+      operationId: evaluateControlToCash
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [contract_value_in_scope, days_accelerated, critical_path_probability, completion_probability, contribution_margin_rate, monthly_outcome_volume, minutes_saved_per_outcome, loaded_labor_rate, monthly_run_cost, implementation_cost]
+      responses:
+        '200': { description: Probability-, margin-, and critical-path-adjusted acceleration and capacity economics with receipt. }
+        '422': { description: Input failed validation or a Finance attribution boundary. }
+  /v1/evolution/evaluate:
+    post:
+      operationId: evaluateEvolutionCandidate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [champion, challenger, weights, hard_gates]
+      responses:
+        '200': { description: Champion/challenger promotion decision with non-averagable safety gates and receipt. }
         '422': { description: Input failed validation. }
   /v1/frameworks/import:
     post:

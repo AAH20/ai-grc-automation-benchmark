@@ -1,0 +1,14 @@
+{
+  "contract_value_in_scope": 500000,
+  "days_accelerated": 21,
+  "critical_path_probability": 0.70,
+  "completion_probability": 0.85,
+  "contribution_margin_rate": 0.65,
+  "monthly_outcome_volume": 180,
+  "minutes_saved_per_outcome": 42,
+  "loaded_labor_rate": 95,
+  "monthly_run_cost": 6200,
+  "implementation_cost": 45000,
+  "confirmed_contract_value_unblocked": 0,
+  "finance_approved_attributable_margin": 0
+}

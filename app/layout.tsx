@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ai-grc-benchmark.a2zsoc.com'),
-  title: 'GRCBench — AI GRC Automation Benchmark',
+  title: 'A2Z GRC Autonomy Lab — Enterprise AI GRC Automation Benchmark',
   description:
-    'Independent benchmark for agentic GRC evidence reliability, control mapping, workflow resilience, audit readiness and unit economics.',
+    'Executable enterprise AI GRC automation benchmark for qualified evidence, continuous compliance, contract acceleration, safe agentic workflows and board-level unit economics.',
   alternates: { canonical: '/' },
 };
 

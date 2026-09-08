@@ -6,6 +6,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from typing import Any
 
 from .adapters import import_ciso_assistant_frameworks
+from .autonomy import evaluate_control_to_cash, evaluate_promotion
 from .economics import calculate_economics
 from .qualification import artifact_from_dict, qualify_evidence
 from .scorecard import build_scorecard
@@ -26,6 +27,10 @@ def dispatch(method: str, path: str, body: dict[str, Any] | None = None) -> tupl
             return 200, build_scorecard(payload)
         if path == "/v1/economics":
             return 200, calculate_economics(payload)
+        if path == "/v1/control-to-cash":
+            return 200, evaluate_control_to_cash(payload)
+        if path == "/v1/evolution/evaluate":
+            return 200, evaluate_promotion(payload)
         if path == "/v1/frameworks/import":
             return 200, import_ciso_assistant_frameworks(payload)
         return 404, {"error": "not_found"}

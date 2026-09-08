@@ -54,3 +54,37 @@ Avoided labor must be based on measured before/after cycle time and actual volum
 - Sensitivity to model price, reviewer rate, volume, and failure rate
 
 Every published calculation retains its assumptions and reports a range when inputs are uncertain.
+
+## Control-to-cash velocity
+
+Contract value is context, not automatically an automation benefit. The acceleration model discounts the value for causality, success probability, time and actual contribution margin:
+
+```text
+Modeled acceleration value
+= contract value in scope
+  × probability GRC is on the critical path
+  × probability of successful completion
+  × days accelerated / 365
+  × contribution margin rate
+```
+
+The runner separately reports confirmed contract value unblocked, modeled acceleration value, and Finance-approved attributable margin. Only the final category can enter verified ROI. Finance-approved attribution cannot exceed the confirmed value.
+
+## Capacity economics
+
+```text
+Annual capacity value
+= monthly accepted outcomes × 12
+  × minutes saved per outcome / 60
+  × fully loaded labor rate
+
+Annual contribution
+= modeled acceleration value + annual capacity value
+  - annual recurring run cost
+```
+
+Capacity is not a headcount-reduction claim. Report how the returned capacity is actually redeployed, such as higher review volume, deeper assurance, faster customer responses, or avoided external spend.
+
+## Evolution economics
+
+Evaluate every challenger on the same workload and measurement window as the champion. Promotion requires a minimum weighted improvement plus zero critical safety escapes, complete decision-grade provenance, and zero Finance-attribution exceptions. Retain latency, model, storage, reviewer and rework costs for both versions so a quality gain with an unacceptable marginal cost remains visible.

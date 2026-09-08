@@ -4,13 +4,15 @@
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Evidence](https://img.shields.io/badge/vendor_scores-execution_required-22d3ee.svg)](docs/METHODOLOGY.md)
 
-**Live benchmark:** [ai-grc-benchmark.a2zsoc.com](https://ai-grc-benchmark.a2zsoc.com)
+**Live benchmark and control plane:** [ai-grc-benchmark.a2zsoc.com](https://ai-grc-benchmark.a2zsoc.com)
 
 An independent, reproducible benchmark for **AI GRC automation**, **compliance automation**, **agentic AI governance**, **automated evidence collection**, **cyber risk quantification**, **continuous control monitoring**, **n8n GRC workflows**, **Zapier compliance automation**, and **open-source GRC**.
 
 GRCBench answers a harder question than “did the automation run?”:
 
 > Did it produce complete, current, relevant, reproducible evidence—and is the outcome safe and economically defensible enough for an auditor, priority customer, Finance team, or board?
+
+The **A2Z GRC Autonomy Lab** extends that benchmark into an executable control-to-cash operating model: cloud and business signals become qualified evidence, governed agent actions, accepted audit or customer outcomes, and Finance-bounded economics. It remains vendor-neutral and makes no claim about a proprietary platform without an authorized reproduced run.
 
 ## What makes this different
 
@@ -31,6 +33,9 @@ Named products never receive numeric scores from documentation or marketing clai
 - CISO Assistant-compatible framework import contract
 - AWS, Kubernetes, and workflow reference adapters
 - Interactive decision workspace
+- Control-to-cash economics with probability, critical-path and contribution-margin boundaries
+- Champion/challenger evolution gates with mandatory safety, provenance and Finance controls
+- Executive workflow portfolio spanning contracts, audits, continuous controls, AI governance and vendor risk
 
 The included `GRCBench reference runner` is synthetic and exists to test the benchmark itself. It is not a product comparison result.
 
@@ -157,6 +162,12 @@ grcbench score catalog/reference-scorecard.json \
 
 grcbench economics catalog/economics.json \
   --output outputs/economics.json
+
+grcbench control-to-cash catalog/control-to-cash.json \
+  --output outputs/control-to-cash.json
+
+grcbench evaluate-promotion catalog/promotion-evaluation.json \
+  --output outputs/promotion-evaluation.json
 
 # Optional local HTTP runner for n8n, Zapier, or custom clients
 grcbench serve --host 127.0.0.1 --port 8787

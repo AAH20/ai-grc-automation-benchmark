@@ -13,26 +13,42 @@
 }
 
 :root, .dark {
-  --background: #0f172a; --foreground: #f8fafc; --card: #111827; --card-foreground: #f8fafc; --primary: #0369a1; --primary-foreground: #ffffff;
+  --background: #0f172a; --foreground: #f8fafc; --card: #111827; --card-foreground: #f8fafc; --primary: #0369a1; --primary-foreground: #fff;
   --secondary: #172033; --secondary-foreground: #e2e8f0; --muted: #172033; --muted-foreground: #94a3b8; --accent: #2e1f59; --accent-foreground: #ede9fe;
-  --destructive: #fb7185; --border: #222f44; --input: #2b3a52; --ring: #38bdf8; --radius: .65rem;
+  --destructive: #fb7185; --border: #243147; --input: #2b3a52; --ring: #38bdf8; --radius: .65rem;
 }
 
 @layer base { * { @apply border-border outline-ring/50; } html { @apply font-sans; color-scheme: dark; scroll-behavior: smooth; } body { @apply bg-background text-foreground; } }
-
-body { background: radial-gradient(circle at 15% 0%, rgb(3 105 161 / 14%), transparent 30rem), radial-gradient(circle at 90% 20%, rgb(124 58 237 / 10%), transparent 28rem), #0f172a; }
+body { background: radial-gradient(circle at 12% 0%, rgb(3 105 161 / 17%), transparent 32rem), radial-gradient(circle at 88% 16%, rgb(124 58 237 / 11%), transparent 30rem), #0f172a; }
 
 @layer components {
-  .hero-panel { @apply rounded-2xl border border-white/9 bg-[#111827]/90 p-6 shadow-[0_30px_100px_rgb(0_0_0/28%)] sm:p-8 lg:p-10; }
-  .signal-panel { @apply rounded-2xl border border-cyan-300/15 bg-gradient-to-b from-[#172033] to-[#0b1220] p-6 shadow-[0_24px_80px_rgb(0_0_0/24%)]; }
-  .surface { @apply rounded-2xl border border-white/9 bg-[#111827]/85 p-5 shadow-[0_24px_80px_rgb(0_0_0/20%)] sm:p-6; }
-  .metric-card { @apply rounded-xl border border-white/8 bg-black/20 p-4; } .metric-value { @apply font-mono text-3xl font-semibold tracking-[-0.05em] text-cyan-300; }
+  .brand-mark { @apply grid h-10 w-10 place-items-center rounded-lg border border-sky-400/30 bg-sky-600/15 text-sky-400 shadow-[0_0_32px_rgb(56_189_248/10%)]; }
+  .command-hero { @apply grid gap-6 rounded-2xl border border-white/9 bg-[#111827]/90 p-6 shadow-[0_30px_100px_rgb(0_0_0/28%)] sm:p-8 xl:grid-cols-[1.4fr_.6fr] xl:p-10; }
+  .executive-signal { @apply rounded-xl border border-cyan-300/15 bg-gradient-to-br from-[#172033] to-[#0a1220] p-5; }
+  .surface { @apply rounded-2xl border border-white/9 bg-[#111827]/88 p-5 shadow-[0_24px_80px_rgb(0_0_0/20%)] sm:p-6; }
+  .metric-card { @apply rounded-xl border border-white/8 bg-[#111827]/90 p-5; } .metric-value { @apply font-mono text-3xl font-semibold tracking-[-0.05em] text-cyan-300; }
+  .tone-violet { @apply text-violet-300; } .tone-emerald { @apply text-emerald-300; }
   .eyebrow { @apply font-mono text-xs font-medium uppercase tracking-[0.18em] text-cyan-300; } .section-heading { @apply flex items-start justify-between gap-4; }
-  .section-heading h2 { @apply mt-2 text-xl font-semibold tracking-tight text-white; } .path-step { @apply rounded-xl border border-white/7 bg-black/15 p-4; }
-  .data-card { @apply flex min-h-32 flex-col gap-2 rounded-xl border border-white/8 bg-black/20 p-5; } .data-card span { @apply text-sm text-slate-500; }
-  .data-card strong { @apply font-mono text-3xl font-semibold tracking-[-0.04em] text-white; } .data-card small { @apply text-sm leading-5 text-slate-500; }
+  .section-heading h2 { @apply mt-2 text-xl font-semibold tracking-tight text-white; }
+  .view-tabs { @apply h-auto w-full justify-start overflow-x-auto rounded-xl border border-white/8 bg-[#111827]/88 p-1.5; }
+  .view-tabs button { @apply min-w-fit gap-2 px-4 py-2.5 text-sm text-slate-400 data-[state=active]:bg-sky-600 data-[state=active]:text-white; }
+  .mini-stat { @apply rounded-lg border border-white/8 bg-black/20 p-3; } .mini-stat span { @apply block font-mono text-lg font-semibold text-white; } .mini-stat small { @apply mt-1 block text-xs leading-4 text-slate-500; }
+  .pipeline { @apply grid gap-2 sm:grid-cols-2 xl:grid-cols-6; } .pipeline-step { @apply rounded-xl border border-white/7 bg-black/15 p-4; }
+  .pipeline-step span, .evolution-card > span { @apply font-mono text-xs text-cyan-300; } .pipeline-step strong { @apply mt-6 block text-sm text-white; } .pipeline-step small { @apply mt-2 block text-xs leading-5 text-slate-500; }
+  .lens-card { @apply rounded-xl border border-white/8 bg-black/20 p-5 text-cyan-300; } .lens-card h3 { @apply mt-4 font-semibold text-white; } .lens-card p { @apply mt-2 text-sm leading-6 text-slate-500; }
+  .workflow-button { @apply flex w-full items-center justify-between gap-3 rounded-xl border border-transparent bg-black/15 p-4 text-left transition hover:border-white/10 hover:bg-white/[0.04]; }
+  .workflow-button strong { @apply block text-sm font-medium text-slate-200; } .workflow-button small { @apply mt-1 block text-xs text-slate-500; } .workflow-button svg { @apply text-slate-600; }
+  .workflow-button.active { @apply border-sky-400/25 bg-sky-500/10; } .workflow-button.active strong, .workflow-button.active svg { @apply text-cyan-300; }
+  .path-card { @apply rounded-xl border border-white/8 bg-black/20 p-4; } .path-card span { @apply font-mono text-xs uppercase tracking-wider text-cyan-300; } .path-card p { @apply mt-2 text-sm leading-5 text-slate-300; }
+  .input-row { @apply rounded-xl border border-white/7 bg-black/15 p-4 text-sm text-slate-400; } .input-row strong { @apply font-mono text-xs font-medium text-white; } .input-row [data-slot=slider] { @apply mt-4; }
+  .formula { @apply rounded-xl border border-cyan-300/15 bg-cyan-300/[0.055] p-5 font-mono text-sm leading-7 text-cyan-100/75; }
+  .evolution-card { @apply min-h-52 rounded-xl border border-white/8 bg-black/20 p-5; } .evolution-card svg { @apply mt-7 text-violet-300; } .evolution-card h3 { @apply mt-4 font-semibold text-white; } .evolution-card p { @apply mt-2 text-sm leading-6 text-slate-500; }
+  .gate-row { @apply flex items-center gap-3 rounded-lg border border-white/7 bg-black/15 px-4 py-3 text-sm text-slate-300; } .gate-row svg { @apply shrink-0 text-emerald-300; }
+  .phase-card { @apply rounded-xl border border-white/8 bg-black/20 p-5; } .phase-card > span { @apply font-mono text-xs uppercase tracking-wider text-cyan-300; } .phase-card h3 { @apply mt-5 font-semibold text-white; } .phase-card p { @apply mt-2 text-sm leading-6 text-slate-500; } .phase-card.featured { @apply border-violet-300/25 bg-violet-300/[0.06]; }
 }
 
-.score-ring { display: grid; width: 5.2rem; height: 5.2rem; place-content: center; border-radius: 999px; background: radial-gradient(circle at center, #09131f 59%, transparent 60%), conic-gradient(#67e8f9 0 97.8%, rgb(255 255 255 / 7%) 97.8%); box-shadow: 0 0 35px rgb(103 232 249 / 12%); text-align: center; }
+.score-ring { display: grid; width: 5.2rem; height: 5.2rem; place-content: center; border-radius: 999px; background: radial-gradient(circle at center, #09131f 59%, transparent 60%), conic-gradient(#67e8f9 0 97.1%, rgb(255 255 255 / 7%) 97.1%); box-shadow: 0 0 35px rgb(103 232 249 / 12%); text-align: center; }
 .score-ring span { font: 600 1.25rem var(--font-geist-mono); color: white; } .score-ring small { color: #64748b; font-size: .68rem; }
+table th { padding: 0 1rem 1rem 0; font-size: .72rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: #64748b; }
+table td { border-top: 1px solid rgb(255 255 255 / 7%); padding: .85rem 1rem .85rem 0; font-size: .875rem; color: #cbd5e1; }
 ::selection { background: rgb(103 232 249 / 25%); color: white; }

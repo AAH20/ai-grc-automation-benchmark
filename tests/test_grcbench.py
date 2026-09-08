@@ -8,6 +8,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from grcbench.adapters import import_ciso_assistant_frameworks, infrastructure_artifact
+from grcbench.autonomy import evaluate_control_to_cash, evaluate_promotion
 from grcbench.canonical import canonical_json, sha256
 from grcbench.cli import main
 from grcbench.economics import calculate_economics
@@ -198,6 +199,35 @@ class EconomicsTests(unittest.TestCase):
         self.assertAlmostEqual(calculate_economics(load("economics.json"))["break_even_transactions"], 1742.16, places=2)
 
 
+class AutonomyTests(unittest.TestCase):
+    def test_control_to_cash_is_probability_and_margin_adjusted(self):
+        result = evaluate_control_to_cash(load("control-to-cash.json"))
+        self.assertEqual(result["modeled_acceleration_value"], 11125.68)
+        self.assertEqual(result["confirmed_contract_value_unblocked"], 0)
+
+    def test_control_to_cash_rejects_invalid_probability(self):
+        data = load("control-to-cash.json")
+        data["critical_path_probability"] = 1.1
+        with self.assertRaises(ValueError):
+            evaluate_control_to_cash(data)
+
+    def test_finance_attribution_is_bounded(self):
+        data = load("control-to-cash.json")
+        data["finance_approved_attributable_margin"] = 1
+        with self.assertRaises(ValueError):
+            evaluate_control_to_cash(data)
+
+    def test_challenger_promotes_only_after_hard_gates(self):
+        self.assertEqual(evaluate_promotion(load("promotion-evaluation.json"))["decision"], "PROMOTE")
+
+    def test_safety_escape_blocks_better_challenger(self):
+        data = load("promotion-evaluation.json")
+        data["hard_gates"]["critical_safety_escapes"] = 1
+        result = evaluate_promotion(data)
+        self.assertEqual(result["decision"], "HOLD")
+        self.assertTrue(result["rollback_required"])
+
+
 class ScorecardTests(unittest.TestCase):
     def test_verified_run_is_rankable(self):
         result = build_scorecard(load("reference-scorecard.json"))
@@ -287,6 +317,12 @@ class AdapterAndContractTests(unittest.TestCase):
             self.assertEqual(main(["economics", str(ROOT / "catalog/economics.json"), "--output", str(output)]), 0)
             self.assertEqual(json.loads(output.read_text())["net_verified_value"], 184000.0)
 
+    def test_cli_writes_control_to_cash(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "control-to-cash.json"
+            self.assertEqual(main(["control-to-cash", str(ROOT / "catalog/control-to-cash.json"), "--output", str(output)]), 0)
+            self.assertIn("modeled_acceleration_value", json.loads(output.read_text()))
+
     def test_cli_qualifies_evidence(self):
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / "evidence.json"
@@ -315,6 +351,16 @@ class ApiContractTests(unittest.TestCase):
         status, payload = dispatch("POST", "/v1/economics", load("economics.json"))
         self.assertEqual(status, 200)
         self.assertEqual(payload["net_verified_value"], 184000.0)
+
+    def test_control_to_cash_endpoint(self):
+        status, payload = dispatch("POST", "/v1/control-to-cash", load("control-to-cash.json"))
+        self.assertEqual(status, 200)
+        self.assertIn("payback_days", payload)
+
+    def test_evolution_endpoint(self):
+        status, payload = dispatch("POST", "/v1/evolution/evaluate", load("promotion-evaluation.json"))
+        self.assertEqual(status, 200)
+        self.assertEqual(payload["decision"], "PROMOTE")
 
     def test_evidence_endpoint(self):
         status, payload = dispatch("POST", "/v1/evidence/qualify", {"artifact": load("evidence-valid.json"), "as_of": "2026-09-07T12:00:00Z"})

@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any, Callable
 
 from .adapters import import_ciso_assistant_frameworks
+from .autonomy import evaluate_control_to_cash, evaluate_promotion
 from .economics import calculate_economics
 from .qualification import artifact_from_dict, qualify_evidence
 from .scorecard import build_scorecard
@@ -29,7 +30,7 @@ def _write(result: Any, output: str | None) -> None:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="grcbench")
     sub = parser.add_subparsers(dest="command", required=True)
-    for name in ("score", "economics", "import-frameworks"):
+    for name in ("score", "economics", "control-to-cash", "evaluate-promotion", "import-frameworks"):
         command = sub.add_parser(name)
         command.add_argument("input")
         command.add_argument("--output")
@@ -49,7 +50,8 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     handlers: dict[str, Callable[[dict[str, Any]], Any]] = {
-        "score": build_scorecard, "economics": calculate_economics, "import-frameworks": import_ciso_assistant_frameworks,
+        "score": build_scorecard, "economics": calculate_economics, "control-to-cash": evaluate_control_to_cash,
+        "evaluate-promotion": evaluate_promotion, "import-frameworks": import_ciso_assistant_frameworks,
     }
     if args.command == "qualify":
         result = asdict(qualify_evidence(artifact_from_dict(_load(args.input)), args.as_of))

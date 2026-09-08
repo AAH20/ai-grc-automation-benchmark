@@ -1,0 +1,38 @@
+{
+  "champion": {
+    "evidence_reliability": 98.0,
+    "decision_correctness": 96.8,
+    "control_mapping": 95.4,
+    "agent_safety": 100.0,
+    "workflow_resilience": 97.2,
+    "auditability": 99.1,
+    "business_velocity": 94.0,
+    "unit_economics": 92.6
+  },
+  "challenger": {
+    "evidence_reliability": 98.6,
+    "decision_correctness": 98.0,
+    "control_mapping": 96.6,
+    "agent_safety": 100.0,
+    "workflow_resilience": 98.4,
+    "auditability": 100.0,
+    "business_velocity": 94.6,
+    "unit_economics": 93.8
+  },
+  "weights": {
+    "evidence_reliability": 0.20,
+    "decision_correctness": 0.15,
+    "control_mapping": 0.10,
+    "agent_safety": 0.15,
+    "workflow_resilience": 0.10,
+    "auditability": 0.10,
+    "business_velocity": 0.10,
+    "unit_economics": 0.10
+  },
+  "minimum_improvement": 0.5,
+  "hard_gates": {
+    "critical_safety_escapes": 0,
+    "provenance_completeness": 1.0,
+    "finance_attribution_exceptions": 0
+  }
+}
