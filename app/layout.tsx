@@ -13,9 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://grcbench.a2zsoc.com'),
   title: 'GRCBench — AI GRC Automation Benchmark',
   description:
     'Independent benchmark for agentic GRC evidence reliability, control mapping, workflow resilience, audit readiness and unit economics.',
+  alternates: { canonical: '/' },
 };
 
 export default function RootLayout({

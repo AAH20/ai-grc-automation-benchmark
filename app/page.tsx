@@ -51,9 +51,9 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <header className="sticky top-0 z-20 border-b border-white/8 bg-[#050a12]/90 backdrop-blur-xl">
+      <header className="sticky top-0 z-20 border-b border-white/8 bg-[#020617]/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-[1480px] items-center justify-between gap-5 px-5 py-4 lg:px-8">
-          <div className="flex items-center gap-3"><div className="grid h-10 w-10 place-items-center rounded-lg border border-cyan-300/25 bg-cyan-300/8 text-cyan-300"><CircleGauge size={20} /></div><div><p className="font-mono text-xs uppercase tracking-[0.22em] text-cyan-300">Open benchmark</p><p className="text-lg font-semibold tracking-tight">GRCBench</p></div></div>
+          <div className="flex items-center gap-3"><div className="grid h-10 w-10 place-items-center rounded-lg border border-sky-400/30 bg-sky-600/15 text-sky-400"><ShieldCheck size={20} /></div><div><p className="font-mono text-[11px] uppercase tracking-[0.16em] text-sky-400">A2Z SOC / OPEN BENCHMARK</p><p className="text-lg font-semibold tracking-tight">GRCBench</p></div></div>
           <div className="hidden items-center gap-2 md:flex"><Badge className="border-emerald-300/25 bg-emerald-300/8 text-emerald-300">Reference run verified</Badge><span className="font-mono text-xs text-slate-500">GB-2026-09-001</span></div>
           <Button nativeButton={false} variant="outline" className="border-white/10 bg-white/[0.03] text-white hover:bg-white/[0.08]" render={<a href="#method" />}>Methodology <ArrowUpRight data-icon="inline-end" /></Button>
         </div>

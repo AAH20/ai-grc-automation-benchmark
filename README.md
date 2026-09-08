@@ -4,6 +4,8 @@
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Evidence](https://img.shields.io/badge/vendor_scores-execution_required-22d3ee.svg)](docs/METHODOLOGY.md)
 
+**Live benchmark:** [grcbench.a2zsoc.com](https://grcbench.a2zsoc.com)
+
 An independent, reproducible benchmark for **AI GRC automation**, **compliance automation**, **agentic AI governance**, **automated evidence collection**, **cyber risk quantification**, **continuous control monitoring**, **n8n GRC workflows**, **Zapier compliance automation**, and **open-source GRC**.
 
 GRCBench answers a harder question than “did the automation run?”:

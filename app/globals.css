@@ -13,19 +13,19 @@
 }
 
 :root, .dark {
-  --background: #050a12; --foreground: #e7eef6; --card: #09121e; --card-foreground: #e7eef6; --primary: #67e8f9; --primary-foreground: #031016;
-  --secondary: #111c2a; --secondary-foreground: #dbeafe; --muted: #111c2a; --muted-foreground: #7c8ca0; --accent: #152438; --accent-foreground: #ecfeff;
-  --destructive: #fb7185; --border: rgb(255 255 255 / 9%); --input: rgb(255 255 255 / 12%); --ring: #67e8f9; --radius: .65rem;
+  --background: #0f172a; --foreground: #f8fafc; --card: #111827; --card-foreground: #f8fafc; --primary: #0369a1; --primary-foreground: #ffffff;
+  --secondary: #172033; --secondary-foreground: #e2e8f0; --muted: #172033; --muted-foreground: #94a3b8; --accent: #2e1f59; --accent-foreground: #ede9fe;
+  --destructive: #fb7185; --border: #222f44; --input: #2b3a52; --ring: #38bdf8; --radius: .65rem;
 }
 
 @layer base { * { @apply border-border outline-ring/50; } html { @apply font-sans; color-scheme: dark; scroll-behavior: smooth; } body { @apply bg-background text-foreground; } }
 
-body { background: radial-gradient(circle at 15% 0%, rgb(34 211 238 / 8%), transparent 28rem), radial-gradient(circle at 90% 20%, rgb(167 139 250 / 7%), transparent 25rem), #050a12; }
+body { background: radial-gradient(circle at 15% 0%, rgb(3 105 161 / 14%), transparent 30rem), radial-gradient(circle at 90% 20%, rgb(124 58 237 / 10%), transparent 28rem), #0f172a; }
 
 @layer components {
-  .hero-panel { @apply rounded-2xl border border-white/9 bg-[#08111d]/90 p-6 shadow-[0_30px_100px_rgb(0_0_0/28%)] sm:p-8 lg:p-10; }
-  .signal-panel { @apply rounded-2xl border border-cyan-300/15 bg-gradient-to-b from-[#0b1824] to-[#07101a] p-6 shadow-[0_24px_80px_rgb(0_0_0/24%)]; }
-  .surface { @apply rounded-2xl border border-white/9 bg-[#08111d]/85 p-5 shadow-[0_24px_80px_rgb(0_0_0/20%)] sm:p-6; }
+  .hero-panel { @apply rounded-2xl border border-white/9 bg-[#111827]/90 p-6 shadow-[0_30px_100px_rgb(0_0_0/28%)] sm:p-8 lg:p-10; }
+  .signal-panel { @apply rounded-2xl border border-cyan-300/15 bg-gradient-to-b from-[#172033] to-[#0b1220] p-6 shadow-[0_24px_80px_rgb(0_0_0/24%)]; }
+  .surface { @apply rounded-2xl border border-white/9 bg-[#111827]/85 p-5 shadow-[0_24px_80px_rgb(0_0_0/20%)] sm:p-6; }
   .metric-card { @apply rounded-xl border border-white/8 bg-black/20 p-4; } .metric-value { @apply font-mono text-3xl font-semibold tracking-[-0.05em] text-cyan-300; }
   .eyebrow { @apply font-mono text-xs font-medium uppercase tracking-[0.18em] text-cyan-300; } .section-heading { @apply flex items-start justify-between gap-4; }
   .section-heading h2 { @apply mt-2 text-xl font-semibold tracking-tight text-white; } .path-step { @apply rounded-xl border border-white/7 bg-black/15 p-4; }
